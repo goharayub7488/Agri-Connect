@@ -11,18 +11,21 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase"; // adjust the path to your firebase.js
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
+import Spinner from "react-native-loading-spinner-overlay";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     if (!email || !password) {
       Alert.alert("Error", "Please enter both email and password");
       return;
     }
-
+    setLoading(true);
     try {
+      await new Promise((resolve) => setTimeout(resolve, 2000));
       const userCredential = await signInWithEmailAndPassword(
         auth,
         email,
@@ -35,7 +38,7 @@ const LoginScreen = ({ navigation }) => {
 
       if (userDoc.exists()) {
         const userType = userDoc.data().userType;
-
+        setLoading(false);
         Alert.alert("Success", `Logged in as ${userType}`);
 
         if (userType === "business") {
@@ -48,12 +51,18 @@ const LoginScreen = ({ navigation }) => {
       }
     } catch (error) {
       Alert.alert("Login Error", error.message);
+      setLoading(false);
     }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Login</Text>
+      <Spinner
+        visible={loading}
+        // textContent={"Signing In..."}
+        // textStyle={{ color: "#fff" }}
+      />
 
       <TextInput
         style={styles.input}
