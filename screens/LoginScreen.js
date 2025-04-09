@@ -61,7 +61,7 @@ const LoginScreen = ({ navigation }) => {
       <Spinner
         visible={loading}
         // textContent={"Signing In..."}
-        // textStyle={{ color: "#fff" }}
+        textStyle={{ color: "#138d90" }}
       />
 
       <TextInput
