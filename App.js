@@ -3,16 +3,16 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 
 // Import your screens
 import LoginScreen from "./screens/LoginScreen";
-import SignupChoiceScreen from "./screens/SignupChoiceScreen";
-import ConsumerSignupScreen from "./screens/ConsumerSignupScreen";
 import BusinessSignupScreen from "./screens/BusinessSignupScreen";
 import MainScreen from "./screens/MainScreen";
 import AccountScreen from "./screens/AccountScreen";
 import NewListingScreen from "./screens/NewListingScreen";
+import Toast from "react-native-toast-message";
+// import uploadCategories from "./Files/UploadCategories"; // Capital "F"
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -59,23 +59,49 @@ function MainTabs() {
 
 // Main navigation container
 export default function App() {
+  // uploadCategories();
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Login"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="SignupChoice" component={SignupChoiceScreen} />
-        <Stack.Screen name="ConsumerSignup" component={ConsumerSignupScreen} />
-        <Stack.Screen name="BusinessSignup" component={BusinessSignupScreen} />
-        <Stack.Screen
-          name="MainTabs"
-          component={MainTabs}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Login"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="SignupChoice" component={BusinessSignupScreen} />
+          <Stack.Screen
+            name="BusinessSignup"
+            component={BusinessSignupScreen}
+          />
+          <Stack.Screen
+            name="MainTabs"
+            component={MainTabs}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+      <Toast
+        config={{
+          success: (internalState) => (
+            <View
+              style={{
+                padding: 15,
+                backgroundColor: "green",
+                borderRadius: 5,
+                marginBottom: 15,
+                width: "90%",
+                alignSelf: "center",
+              }}
+            >
+              <Text style={{ color: "white" }}>{internalState.text1}</Text>
+              <Text style={{ color: "white" }}>{internalState.text2}</Text>
+            </View>
+          ),
+        }}
+        position="bottom" // Position toast at the bottom
+        visibilityTime={3000} // Auto-hide after 3 seconds
+      />
+    </>
   );
 }
 
