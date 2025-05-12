@@ -6,8 +6,8 @@ import { createStackNavigator } from "@react-navigation/stack";
 import SplashScreen from "./screens/SplashScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import ConsumerHomeScreen from "./screens/ConsumerHomeScreen";
-import FarmerHomeScreen from "./screens/FarmerHomeScreen";
+import MainHomeScreen from "./screens/MainHomeScreen";
+import FarmerScreen from "./screens/FarmerScreen";
 
 const Stack = createStackNavigator();
 
@@ -16,10 +16,14 @@ const AppNavigation = () => {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen
+          name="MainScreen"
+          component={MainHomeScreen}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="ConsumerHome" component={ConsumerHomeScreen} />
-        <Stack.Screen name="FarmerHome" component={FarmerHomeScreen} />
+        <Stack.Screen name="FarmerScreen" component={FarmerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

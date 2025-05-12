@@ -50,7 +50,7 @@ const RegisterScreen = () => {
 
       // Navigate based on user type
       const destination =
-        userType === "Consumer" ? "ConsumerHome" : "BusinessHome";
+        userType === "Consumer" ? "MainScreen" : "FarmerScreen";
       navigation.navigate(destination);
     } catch (error) {
       setLoading(false);
