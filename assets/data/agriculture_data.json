@@ -1,0 +1,1342 @@
+[
+  {
+    "Data Source": "Last Updated Date",
+    "World Development Indicators": "2025-04-15",
+    "": ""
+  },
+  {
+    "Data Source": "Country Name",
+    "World Development Indicators": "Country Code",
+    "": "Indicator Name"
+  },
+  {
+    "Data Source": "Aruba",
+    "World Development Indicators": "ABW",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Africa Eastern and Southern",
+    "World Development Indicators": "AFE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Afghanistan",
+    "World Development Indicators": "AFG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Africa Western and Central",
+    "World Development Indicators": "AFW",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Angola",
+    "World Development Indicators": "AGO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Albania",
+    "World Development Indicators": "ALB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Andorra",
+    "World Development Indicators": "AND",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Arab World",
+    "World Development Indicators": "ARB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "United Arab Emirates",
+    "World Development Indicators": "ARE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Argentina",
+    "World Development Indicators": "ARG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Armenia",
+    "World Development Indicators": "ARM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "American Samoa",
+    "World Development Indicators": "ASM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Antigua and Barbuda",
+    "World Development Indicators": "ATG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Australia",
+    "World Development Indicators": "AUS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Austria",
+    "World Development Indicators": "AUT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Azerbaijan",
+    "World Development Indicators": "AZE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Burundi",
+    "World Development Indicators": "BDI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Belgium",
+    "World Development Indicators": "BEL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Benin",
+    "World Development Indicators": "BEN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Burkina Faso",
+    "World Development Indicators": "BFA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bangladesh",
+    "World Development Indicators": "BGD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bulgaria",
+    "World Development Indicators": "BGR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bahrain",
+    "World Development Indicators": "BHR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bahamas, The",
+    "World Development Indicators": "BHS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bosnia and Herzegovina",
+    "World Development Indicators": "BIH",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Belarus",
+    "World Development Indicators": "BLR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Belize",
+    "World Development Indicators": "BLZ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bermuda",
+    "World Development Indicators": "BMU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bolivia",
+    "World Development Indicators": "BOL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Brazil",
+    "World Development Indicators": "BRA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Barbados",
+    "World Development Indicators": "BRB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Brunei Darussalam",
+    "World Development Indicators": "BRN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Bhutan",
+    "World Development Indicators": "BTN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Botswana",
+    "World Development Indicators": "BWA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Central African Republic",
+    "World Development Indicators": "CAF",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Canada",
+    "World Development Indicators": "CAN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Central Europe and the Baltics",
+    "World Development Indicators": "CEB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Switzerland",
+    "World Development Indicators": "CHE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Channel Islands",
+    "World Development Indicators": "CHI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Chile",
+    "World Development Indicators": "CHL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "China",
+    "World Development Indicators": "CHN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cote d'Ivoire",
+    "World Development Indicators": "CIV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cameroon",
+    "World Development Indicators": "CMR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Congo, Dem. Rep.",
+    "World Development Indicators": "COD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Congo, Rep.",
+    "World Development Indicators": "COG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Colombia",
+    "World Development Indicators": "COL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Comoros",
+    "World Development Indicators": "COM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cabo Verde",
+    "World Development Indicators": "CPV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Costa Rica",
+    "World Development Indicators": "CRI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Caribbean small states",
+    "World Development Indicators": "CSS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cuba",
+    "World Development Indicators": "CUB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Curacao",
+    "World Development Indicators": "CUW",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cayman Islands",
+    "World Development Indicators": "CYM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cyprus",
+    "World Development Indicators": "CYP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Czechia",
+    "World Development Indicators": "CZE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Germany",
+    "World Development Indicators": "DEU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Djibouti",
+    "World Development Indicators": "DJI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Dominica",
+    "World Development Indicators": "DMA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Denmark",
+    "World Development Indicators": "DNK",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Dominican Republic",
+    "World Development Indicators": "DOM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Algeria",
+    "World Development Indicators": "DZA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "East Asia & Pacific (excluding high income)",
+    "World Development Indicators": "EAP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Early-demographic dividend",
+    "World Development Indicators": "EAR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "East Asia & Pacific",
+    "World Development Indicators": "EAS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Europe & Central Asia (excluding high income)",
+    "World Development Indicators": "ECA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Europe & Central Asia",
+    "World Development Indicators": "ECS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Ecuador",
+    "World Development Indicators": "ECU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Egypt, Arab Rep.",
+    "World Development Indicators": "EGY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Euro area",
+    "World Development Indicators": "EMU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Eritrea",
+    "World Development Indicators": "ERI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Spain",
+    "World Development Indicators": "ESP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Estonia",
+    "World Development Indicators": "EST",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Ethiopia",
+    "World Development Indicators": "ETH",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "European Union",
+    "World Development Indicators": "EUU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Fragile and conflict affected situations",
+    "World Development Indicators": "FCS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Finland",
+    "World Development Indicators": "FIN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Fiji",
+    "World Development Indicators": "FJI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "France",
+    "World Development Indicators": "FRA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Faroe Islands",
+    "World Development Indicators": "FRO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Micronesia, Fed. Sts.",
+    "World Development Indicators": "FSM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Gabon",
+    "World Development Indicators": "GAB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "United Kingdom",
+    "World Development Indicators": "GBR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Georgia",
+    "World Development Indicators": "GEO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Ghana",
+    "World Development Indicators": "GHA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Gibraltar",
+    "World Development Indicators": "GIB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Guinea",
+    "World Development Indicators": "GIN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Gambia, The",
+    "World Development Indicators": "GMB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Guinea-Bissau",
+    "World Development Indicators": "GNB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Equatorial Guinea",
+    "World Development Indicators": "GNQ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Greece",
+    "World Development Indicators": "GRC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Grenada",
+    "World Development Indicators": "GRD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Greenland",
+    "World Development Indicators": "GRL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Guatemala",
+    "World Development Indicators": "GTM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Guam",
+    "World Development Indicators": "GUM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Guyana",
+    "World Development Indicators": "GUY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "High income",
+    "World Development Indicators": "HIC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Hong Kong SAR, China",
+    "World Development Indicators": "HKG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Honduras",
+    "World Development Indicators": "HND",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Heavily indebted poor countries (HIPC)",
+    "World Development Indicators": "HPC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Croatia",
+    "World Development Indicators": "HRV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Haiti",
+    "World Development Indicators": "HTI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Hungary",
+    "World Development Indicators": "HUN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "IBRD only",
+    "World Development Indicators": "IBD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "IDA & IBRD total",
+    "World Development Indicators": "IBT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "IDA total",
+    "World Development Indicators": "IDA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "IDA blend",
+    "World Development Indicators": "IDB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Indonesia",
+    "World Development Indicators": "IDN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "IDA only",
+    "World Development Indicators": "IDX",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Isle of Man",
+    "World Development Indicators": "IMN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "India",
+    "World Development Indicators": "IND",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Not classified",
+    "World Development Indicators": "INX",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Ireland",
+    "World Development Indicators": "IRL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Iran, Islamic Rep.",
+    "World Development Indicators": "IRN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Iraq",
+    "World Development Indicators": "IRQ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Iceland",
+    "World Development Indicators": "ISL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Israel",
+    "World Development Indicators": "ISR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Italy",
+    "World Development Indicators": "ITA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Jamaica",
+    "World Development Indicators": "JAM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Jordan",
+    "World Development Indicators": "JOR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Japan",
+    "World Development Indicators": "JPN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kazakhstan",
+    "World Development Indicators": "KAZ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kenya",
+    "World Development Indicators": "KEN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kyrgyz Republic",
+    "World Development Indicators": "KGZ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Cambodia",
+    "World Development Indicators": "KHM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kiribati",
+    "World Development Indicators": "KIR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "St. Kitts and Nevis",
+    "World Development Indicators": "KNA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Korea, Rep.",
+    "World Development Indicators": "KOR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kuwait",
+    "World Development Indicators": "KWT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Latin America & Caribbean (excluding high income)",
+    "World Development Indicators": "LAC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Lao PDR",
+    "World Development Indicators": "LAO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Lebanon",
+    "World Development Indicators": "LBN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Liberia",
+    "World Development Indicators": "LBR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Libya",
+    "World Development Indicators": "LBY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "St. Lucia",
+    "World Development Indicators": "LCA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Latin America & Caribbean",
+    "World Development Indicators": "LCN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Least developed countries: UN classification",
+    "World Development Indicators": "LDC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Low income",
+    "World Development Indicators": "LIC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Liechtenstein",
+    "World Development Indicators": "LIE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sri Lanka",
+    "World Development Indicators": "LKA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Lower middle income",
+    "World Development Indicators": "LMC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Low & middle income",
+    "World Development Indicators": "LMY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Lesotho",
+    "World Development Indicators": "LSO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Late-demographic dividend",
+    "World Development Indicators": "LTE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Lithuania",
+    "World Development Indicators": "LTU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Luxembourg",
+    "World Development Indicators": "LUX",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Latvia",
+    "World Development Indicators": "LVA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Macao SAR, China",
+    "World Development Indicators": "MAC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "St. Martin (French part)",
+    "World Development Indicators": "MAF",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Morocco",
+    "World Development Indicators": "MAR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Monaco",
+    "World Development Indicators": "MCO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Moldova",
+    "World Development Indicators": "MDA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Madagascar",
+    "World Development Indicators": "MDG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Maldives",
+    "World Development Indicators": "MDV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Middle East & North Africa",
+    "World Development Indicators": "MEA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mexico",
+    "World Development Indicators": "MEX",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Marshall Islands",
+    "World Development Indicators": "MHL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Middle income",
+    "World Development Indicators": "MIC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "North Macedonia",
+    "World Development Indicators": "MKD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mali",
+    "World Development Indicators": "MLI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Malta",
+    "World Development Indicators": "MLT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Myanmar",
+    "World Development Indicators": "MMR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Middle East & North Africa (excluding high income)",
+    "World Development Indicators": "MNA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Montenegro",
+    "World Development Indicators": "MNE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mongolia",
+    "World Development Indicators": "MNG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Northern Mariana Islands",
+    "World Development Indicators": "MNP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mozambique",
+    "World Development Indicators": "MOZ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mauritania",
+    "World Development Indicators": "MRT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Mauritius",
+    "World Development Indicators": "MUS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Malawi",
+    "World Development Indicators": "MWI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Malaysia",
+    "World Development Indicators": "MYS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "North America",
+    "World Development Indicators": "NAC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Namibia",
+    "World Development Indicators": "NAM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "New Caledonia",
+    "World Development Indicators": "NCL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Niger",
+    "World Development Indicators": "NER",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Nigeria",
+    "World Development Indicators": "NGA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Nicaragua",
+    "World Development Indicators": "NIC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Netherlands",
+    "World Development Indicators": "NLD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Norway",
+    "World Development Indicators": "NOR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Nepal",
+    "World Development Indicators": "NPL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Nauru",
+    "World Development Indicators": "NRU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "New Zealand",
+    "World Development Indicators": "NZL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "OECD members",
+    "World Development Indicators": "OED",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Oman",
+    "World Development Indicators": "OMN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Other small states",
+    "World Development Indicators": "OSS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Pakistan",
+    "World Development Indicators": "PAK",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Panama",
+    "World Development Indicators": "PAN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Peru",
+    "World Development Indicators": "PER",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Philippines",
+    "World Development Indicators": "PHL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Palau",
+    "World Development Indicators": "PLW",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Papua New Guinea",
+    "World Development Indicators": "PNG",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Poland",
+    "World Development Indicators": "POL",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Pre-demographic dividend",
+    "World Development Indicators": "PRE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Puerto Rico",
+    "World Development Indicators": "PRI",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Korea, Dem. People's Rep.",
+    "World Development Indicators": "PRK",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Portugal",
+    "World Development Indicators": "PRT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Paraguay",
+    "World Development Indicators": "PRY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "West Bank and Gaza",
+    "World Development Indicators": "PSE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Pacific island small states",
+    "World Development Indicators": "PSS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Post-demographic dividend",
+    "World Development Indicators": "PST",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "French Polynesia",
+    "World Development Indicators": "PYF",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Qatar",
+    "World Development Indicators": "QAT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Romania",
+    "World Development Indicators": "ROU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Russian Federation",
+    "World Development Indicators": "RUS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Rwanda",
+    "World Development Indicators": "RWA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "South Asia",
+    "World Development Indicators": "SAS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Saudi Arabia",
+    "World Development Indicators": "SAU",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sudan",
+    "World Development Indicators": "SDN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Senegal",
+    "World Development Indicators": "SEN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Singapore",
+    "World Development Indicators": "SGP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Solomon Islands",
+    "World Development Indicators": "SLB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sierra Leone",
+    "World Development Indicators": "SLE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "El Salvador",
+    "World Development Indicators": "SLV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "San Marino",
+    "World Development Indicators": "SMR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Somalia",
+    "World Development Indicators": "SOM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Serbia",
+    "World Development Indicators": "SRB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sub-Saharan Africa (excluding high income)",
+    "World Development Indicators": "SSA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "South Sudan",
+    "World Development Indicators": "SSD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sub-Saharan Africa",
+    "World Development Indicators": "SSF",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Small states",
+    "World Development Indicators": "SST",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sao Tome and Principe",
+    "World Development Indicators": "STP",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Suriname",
+    "World Development Indicators": "SUR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Slovak Republic",
+    "World Development Indicators": "SVK",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Slovenia",
+    "World Development Indicators": "SVN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sweden",
+    "World Development Indicators": "SWE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Eswatini",
+    "World Development Indicators": "SWZ",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sint Maarten (Dutch part)",
+    "World Development Indicators": "SXM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Seychelles",
+    "World Development Indicators": "SYC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Syrian Arab Republic",
+    "World Development Indicators": "SYR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Turks and Caicos Islands",
+    "World Development Indicators": "TCA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Chad",
+    "World Development Indicators": "TCD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "East Asia & Pacific (IDA & IBRD countries)",
+    "World Development Indicators": "TEA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Europe & Central Asia (IDA & IBRD countries)",
+    "World Development Indicators": "TEC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Togo",
+    "World Development Indicators": "TGO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Thailand",
+    "World Development Indicators": "THA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Tajikistan",
+    "World Development Indicators": "TJK",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Turkmenistan",
+    "World Development Indicators": "TKM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Latin America & the Caribbean (IDA & IBRD countries)",
+    "World Development Indicators": "TLA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Timor-Leste",
+    "World Development Indicators": "TLS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Middle East & North Africa (IDA & IBRD countries)",
+    "World Development Indicators": "TMN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Tonga",
+    "World Development Indicators": "TON",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "South Asia (IDA & IBRD)",
+    "World Development Indicators": "TSA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Sub-Saharan Africa (IDA & IBRD countries)",
+    "World Development Indicators": "TSS",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Trinidad and Tobago",
+    "World Development Indicators": "TTO",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Tunisia",
+    "World Development Indicators": "TUN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Turkiye",
+    "World Development Indicators": "TUR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Tuvalu",
+    "World Development Indicators": "TUV",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Tanzania",
+    "World Development Indicators": "TZA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Uganda",
+    "World Development Indicators": "UGA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Ukraine",
+    "World Development Indicators": "UKR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Upper middle income",
+    "World Development Indicators": "UMC",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Uruguay",
+    "World Development Indicators": "URY",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "United States",
+    "World Development Indicators": "USA",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Uzbekistan",
+    "World Development Indicators": "UZB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "St. Vincent and the Grenadines",
+    "World Development Indicators": "VCT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Venezuela, RB",
+    "World Development Indicators": "VEN",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "British Virgin Islands",
+    "World Development Indicators": "VGB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Virgin Islands (U.S.)",
+    "World Development Indicators": "VIR",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Viet Nam",
+    "World Development Indicators": "VNM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Vanuatu",
+    "World Development Indicators": "VUT",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "World",
+    "World Development Indicators": "WLD",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Samoa",
+    "World Development Indicators": "WSM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Kosovo",
+    "World Development Indicators": "XKX",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Yemen, Rep.",
+    "World Development Indicators": "YEM",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "South Africa",
+    "World Development Indicators": "ZAF",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Zambia",
+    "World Development Indicators": "ZMB",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  },
+  {
+    "Data Source": "Zimbabwe",
+    "World Development Indicators": "ZWE",
+    "": "Agriculture, forestry, and fishing, value added (% of GDP)"
+  }
+]

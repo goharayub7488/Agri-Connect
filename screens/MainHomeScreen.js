@@ -1,199 +1,423 @@
-// MainScreen.js
+// MainScreen.js - Consumer view of all products
+
 import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
   StyleSheet,
-  TextInput,
+  TouchableOpacity,
   FlatList,
   Image,
-  TouchableOpacity,
   ActivityIndicator,
+  Modal,
+  ScrollView,
   Alert,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { handleLogout } from "../components/Logout";
 
-const MainScreen = ({ navigation }) => {
+// Use a configuration file or environment variable for the API URL
+const API_URL = "http://192.168.18.85:3001/api"; // Replace with your actual API URL
+
+// Debug function to help troubleshoot API calls
+const logApiCall = (method, url, data = null) => {
+  console.log(`🚀 API ${method} request to: ${url}`);
+  if (data) console.log("Request data:", JSON.stringify(data, null, 2));
+};
+
+const MainScreen = () => {
+  const navigation = useNavigation();
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [token, setToken] = useState("");
+  const [productModalVisible, setProductModalVisible] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const categories = [
-    "All",
-    "Vegetables",
-    "Fruits",
-    "Grains",
-    "Dairy",
-    "Other",
-  ];
-  const apiBaseUrl = "http://192.168.18.85:3001/api";
+  // Get token on component mount
   useEffect(() => {
-    fetchAllProducts();
+    const getToken = async () => {
+      try {
+        const userToken = await AsyncStorage.getItem("token");
+        if (userToken) {
+          setToken(userToken);
+          console.log("Token retrieved successfully");
+        } else {
+          console.log("No token found, redirecting to login");
+          navigation.replace("Login");
+        }
+      } catch (error) {
+        console.error("Failed to get token", error);
+      }
+    };
+
+    getToken();
   }, []);
 
+  // Fetch categories
   useEffect(() => {
-    filterProducts();
-  }, [searchQuery, selectedCategory, products]);
+    if (token) {
+      fetchCategories();
+    }
+  }, [token]);
 
-  const fetchAllProducts = async () => {
+  // Fetch products when category changes
+  useEffect(() => {
+    if (selectedCategory && token) {
+      fetchProducts(selectedCategory);
+    }
+  }, [selectedCategory, token]);
+
+  const fetchCategories = async () => {
     try {
       setLoading(true);
-      const token = await AsyncStorage.getItem("token");
+      logApiCall("GET", `${API_URL}/categories`);
 
-      if (!token) {
-        Alert.alert("Error", "You need to login first");
-        return;
-      }
-
-      const response = await axios.get(`${apiBaseUrl}/auth/login`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
+      const response = await axios.get(`${API_URL}/categories`, {
+        headers: { Authorization: `Bearer ${token}` },
       });
 
-      setProducts(response.data);
-      setFilteredProducts(response.data);
+      console.log("Categories response:", response.data);
+
+      if (response.data && response.data.data) {
+        setCategories(response.data.data);
+        if (response.data.data.length > 0) {
+          setSelectedCategory(response.data.data[0].id);
+        }
+      }
     } catch (error) {
-      console.error("Error fetching products:", error);
-      Alert.alert("Error", "Failed to load products");
+      console.error("Error fetching categories:", error);
+
+      if (error.response) {
+        console.error("Error response data:", error.response.data);
+        console.error("Error response status:", error.response.status);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+      } else {
+        console.error("Error message:", error.message);
+      }
+
+      Alert.alert(
+        "Error",
+        "Failed to load categories. Please check your connection."
+      );
     } finally {
       setLoading(false);
     }
   };
 
-  const handleRefresh = () => {
-    setRefreshing(true);
-    fetchAllProducts().then(() => setRefreshing(false));
+  const fetchProducts = async (categoryId) => {
+    try {
+      setLoading(true);
+
+      // This endpoint should be different from the farmer endpoint - it should get ALL products
+      const url = `${API_URL}/products?category_id=${categoryId}`;
+      logApiCall("GET", url);
+
+      const response = await axios.get(url, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      console.log("Products response:", response.data);
+
+      if (response.data && response.data.data) {
+        const fetchedProducts = response.data.data;
+        console.log("Fetched Products:", fetchedProducts);
+        setProducts(fetchedProducts);
+      }
+    } catch (error) {
+      console.error("Error fetching products:", error);
+
+      if (error.response) {
+        console.error("Error response data:", error.response.data);
+        console.error("Error response status:", error.response.status);
+      } else if (error.request) {
+        console.error("No response received:", error.request);
+      } else {
+        console.error("Error message:", error.message);
+      }
+
+      Alert.alert("Error", "Failed to load products. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const filterProducts = () => {
-    let filtered = products;
-
-    // Filter by search query
-    if (searchQuery) {
-      filtered = filtered.filter(
-        (product) =>
-          product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          product.description.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-    }
-
-    // Filter by category
-    if (selectedCategory !== "All") {
-      filtered = filtered.filter(
-        (product) =>
-          product.category.toLowerCase() === selectedCategory.toLowerCase()
-      );
-    }
-
-    setFilteredProducts(filtered);
+  const handleViewProduct = (product) => {
+    setSelectedProduct(product);
+    setProductModalVisible(true);
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const handleContactFarmer = (farmerId, farmerName) => {
+    // Navigate to chat or contact screen with the farmer ID
+    // This is a placeholder - implement based on your app's navigation structure
+    Alert.alert(
+      "Contact Farmer",
+      `You are about to contact ${farmerName}. This feature will be implemented in future updates.`
+    );
+
+    // Example navigation:
+    // navigation.navigate('Chat', { farmerId, farmerName });
   };
 
   const renderCategoryItem = ({ item }) => (
     <TouchableOpacity
       style={[
         styles.categoryItem,
-        selectedCategory === item && styles.selectedCategoryItem,
+        selectedCategory === item.id && styles.selectedCategory,
       ]}
-      onPress={() => handleCategorySelect(item)}
+      onPress={() => setSelectedCategory(item.id)}
     >
+      <Image
+        source={{ uri: item.icon }}
+        style={styles.categoryIcon}
+        resizeMode="contain"
+        onError={(e) =>
+          console.log("Image loading error:", e.nativeEvent.error)
+        }
+      />
       <Text
         style={[
           styles.categoryText,
-          selectedCategory === item && styles.selectedCategoryText,
+          selectedCategory === item.id && styles.selectedCategoryText,
         ]}
       >
-        {item}
+        {item.name}
       </Text>
     </TouchableOpacity>
   );
 
-  const renderProduct = ({ item }) => (
+  const renderProductItem = ({ item }) => (
     <TouchableOpacity
       style={styles.productCard}
-      onPress={() => navigation.navigate("ProductDetail", { product: item })}
+      onPress={() => handleViewProduct(item)}
     >
-      <Image
-        source={{ uri: item.imageUrl || "https://via.placeholder.com/150" }}
-        style={styles.productImage}
-      />
+      {item.photos && item.photos.length > 0 ? (
+        <Image
+          source={{ uri: item.photos[0] }}
+          style={styles.productImage}
+          resizeMode="cover"
+          onError={(e) => console.log("Image error:", e.nativeEvent.error)}
+        />
+      ) : (
+        <View style={styles.noImageContainer}>
+          <Ionicons name="image-outline" size={50} color="#ccc" />
+        </View>
+      )}
+
       <View style={styles.productInfo}>
         <Text style={styles.productName}>{item.name}</Text>
-        <Text style={styles.productDescription} numberOfLines={2}>
-          {item.description}
+        <Text style={styles.productPrice}>Rs {item.price.amount}</Text>
+        <Text style={styles.productLocation}>
+          {item.location.location || item.location.address}
         </Text>
-        <View style={styles.productMetaContainer}>
-          <Text style={styles.productPrice}>₹{item.price}</Text>
-          <Text style={styles.productCategory}>{item.category}</Text>
-        </View>
-        <Text style={styles.farmerInfo}>
-          By {item.farmerName || "Local Farmer"}
-        </Text>
+
+        {/* Show farmer info */}
+        {item.farmer && (
+          <View style={styles.farmerInfo}>
+            <Ionicons name="person-outline" size={14} color="#666" />
+            <Text style={styles.farmerName}>{item.farmer.name}</Text>
+          </View>
+        )}
       </View>
     </TouchableOpacity>
   );
+
+  const ProductDetailModal = () => {
+    if (!selectedProduct) return null;
+
+    return (
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={productModalVisible}
+        onRequestClose={() => setProductModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>{selectedProduct.name}</Text>
+              <TouchableOpacity onPress={() => setProductModalVisible(false)}>
+                <Ionicons name="close" size={24} color="#333" />
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView style={styles.modalScrollContent}>
+              {/* Product Images */}
+              {selectedProduct.photos && selectedProduct.photos.length > 0 ? (
+                <View style={styles.imageCarousel}>
+                  <FlatList
+                    horizontal
+                    data={selectedProduct.photos}
+                    renderItem={({ item }) => (
+                      <Image
+                        source={{ uri: item }}
+                        style={styles.carouselImage}
+                        resizeMode="cover"
+                      />
+                    )}
+                    keyExtractor={(item, index) => index.toString()}
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled
+                  />
+                </View>
+              ) : (
+                <View style={styles.noImageContainerModal}>
+                  <Ionicons name="image-outline" size={80} color="#ccc" />
+                </View>
+              )}
+
+              {/* Product Details */}
+              <View style={styles.detailSection}>
+                <Text style={styles.detailSectionTitle}>Product Details</Text>
+                <View style={styles.detailRow}>
+                  <Text style={styles.detailLabel}>Price:</Text>
+                  <Text style={styles.detailValue}>
+                    Rs {selectedProduct.price.amount}
+                  </Text>
+                </View>
+                <View style={styles.detailRow}>
+                  <Text style={styles.detailLabel}>Location:</Text>
+                  <Text style={styles.detailValue}>
+                    {selectedProduct.location.location ||
+                      selectedProduct.location.address}
+                  </Text>
+                </View>
+                {selectedProduct.created_at && (
+                  <View style={styles.detailRow}>
+                    <Text style={styles.detailLabel}>Listed on:</Text>
+                    <Text style={styles.detailValue}>
+                      {selectedProduct.created_at}
+                    </Text>
+                  </View>
+                )}
+              </View>
+
+              {/* Farmer Info */}
+              {selectedProduct.farmer && (
+                <View style={styles.detailSection}>
+                  <Text style={styles.detailSectionTitle}>Farmer Details</Text>
+                  <View style={styles.farmerDetailCard}>
+                    <View style={styles.farmerAvatarContainer}>
+                      <Ionicons
+                        name="person-circle-outline"
+                        size={50}
+                        color="#4CAF50"
+                      />
+                    </View>
+                    <View style={styles.farmerDetails}>
+                      <Text style={styles.farmerDetailName}>
+                        {selectedProduct.farmer.name}
+                      </Text>
+                      {selectedProduct.farmer.phone && (
+                        <Text style={styles.farmerDetailContact}>
+                          {selectedProduct.farmer.phone}
+                        </Text>
+                      )}
+                      {selectedProduct.farmer.email && (
+                        <Text style={styles.farmerDetailContact}>
+                          {selectedProduct.farmer.email}
+                        </Text>
+                      )}
+                    </View>
+                  </View>
+                </View>
+              )}
+            </ScrollView>
+
+            {/* Contact Button */}
+            {selectedProduct.farmer && (
+              <TouchableOpacity
+                style={styles.contactButton}
+                onPress={() => {
+                  setProductModalVisible(false);
+                  handleContactFarmer(
+                    selectedProduct.farmer.id,
+                    selectedProduct.farmer.name
+                  );
+                }}
+              >
+                <Ionicons name="chatbubble-outline" size={20} color="#fff" />
+                <Text style={styles.contactButtonText}>Contact Farmer</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+      </Modal>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerTitle}>Agri-Connect</Text>
+          <Text style={styles.headerTitle}>Farm Fresh</Text>
+          <TouchableOpacity
+            onPress={() => handleLogout(navigation)}
+            style={styles.logoutButton}
+          >
+            <Text style={styles.logoutText}>Logout</Text>
+          </TouchableOpacity>
         </View>
 
-        <View style={styles.searchContainer}>
-          <Ionicons
-            name="search"
-            size={20}
-            color="#757575"
-            style={styles.searchIcon}
+        {loading && !categories.length ? (
+          <ActivityIndicator
+            size="large"
+            color="#4CAF50"
+            style={styles.loader}
           />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search for products..."
-            value={searchQuery}
-            onChangeText={setSearchQuery}
-          />
-        </View>
-
-        <View style={styles.categoriesContainer}>
-          <FlatList
-            data={categories}
-            renderItem={renderCategoryItem}
-            keyExtractor={(item) => item}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-
-        {loading ? (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="#4CAF50" />
-          </View>
         ) : (
-          <FlatList
-            data={filteredProducts}
-            renderItem={renderProduct}
-            keyExtractor={(item) => item._id}
-            contentContainerStyle={styles.productList}
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-            ListEmptyComponent={
-              <View style={styles.emptyContainer}>
-                <Text style={styles.emptyText}>No products found</Text>
-              </View>
-            }
-          />
+          <>
+            {/* Categories List */}
+            <View style={styles.categoriesContainer}>
+              <FlatList
+                horizontal
+                data={categories}
+                renderItem={renderCategoryItem}
+                keyExtractor={(item) => item.id.toString()}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.categoriesList}
+              />
+            </View>
+
+            {/* Products Grid */}
+            {loading ? (
+              <ActivityIndicator
+                size="large"
+                color="#4CAF50"
+                style={styles.loader}
+              />
+            ) : (
+              <FlatList
+                data={products}
+                renderItem={renderProductItem}
+                keyExtractor={(item) => item.id.toString()}
+                contentContainerStyle={styles.productsList}
+                numColumns={2}
+                columnWrapperStyle={styles.productsRow}
+                ListEmptyComponent={
+                  <View style={styles.emptyContainer}>
+                    <Ionicons name="leaf-outline" size={60} color="#ccc" />
+                    <Text style={styles.emptyText}>
+                      No products in this category
+                    </Text>
+                    <Text style={styles.emptySubtext}>
+                      Check back later for new products
+                    </Text>
+                  </View>
+                }
+              />
+            )}
+          </>
         )}
+
+        {/* Product Detail Modal */}
+        <ProductDetailModal />
       </View>
     </SafeAreaView>
   );
@@ -205,138 +429,607 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#F5F5F5",
+    backgroundColor: "#f5f5f5",
   },
   header: {
-    padding: 16,
     backgroundColor: "#4CAF50",
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   headerTitle: {
+    color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
+  },
+  logoutButton: {
+    padding: 8,
+  },
+  logoutText: {
     color: "#fff",
+    fontSize: 16,
   },
-  searchContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#fff",
-    margin: 16,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 2,
-  },
-  searchIcon: {
-    marginRight: 8,
-  },
-  searchInput: {
+  loader: {
     flex: 1,
-    padding: 12,
+    justifyContent: "center",
+    alignItems: "center",
   },
   categoriesContainer: {
-    marginBottom: 16,
-    paddingLeft: 16,
+    marginVertical: 10,
+  },
+  categoriesList: {
+    paddingHorizontal: 16,
   },
   categoryItem: {
     paddingHorizontal: 16,
     paddingVertical: 8,
     backgroundColor: "#fff",
     borderRadius: 20,
-    marginRight: 8,
+    marginRight: 10,
     borderWidth: 1,
-    borderColor: "#E0E0E0",
+    borderColor: "#e0e0e0",
   },
-  selectedCategoryItem: {
+  selectedCategory: {
     backgroundColor: "#4CAF50",
     borderColor: "#4CAF50",
   },
+  categoryIcon: {
+    width: 40,
+    height: 40,
+    marginBottom: 5,
+  },
   categoryText: {
     color: "#333",
+    fontWeight: "500",
   },
   selectedCategoryText: {
     color: "#fff",
-    fontWeight: "bold",
   },
-  productList: {
-    padding: 16,
+  productsList: {
+    padding: 8,
+  },
+  productsRow: {
+    justifyContent: "space-between",
   },
   productCard: {
-    flexDirection: "row",
     backgroundColor: "#fff",
     borderRadius: 8,
     marginBottom: 16,
     overflow: "hidden",
+    elevation: 2,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 2,
+    width: "48%", // For 2 columns with spacing
   },
   productImage: {
-    width: 120,
+    width: "100%",
     height: 120,
   },
+  noImageContainer: {
+    width: "100%",
+    height: 120,
+    backgroundColor: "#f0f0f0",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   productInfo: {
-    flex: 1,
     padding: 12,
   },
   productName: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#333",
+    marginBottom: 4,
   },
-  productDescription: {
+  productPrice: {
     fontSize: 14,
-    color: "#757575",
+    color: "#4CAF50",
+    fontWeight: "bold",
+    marginBottom: 4,
+  },
+  productLocation: {
+    fontSize: 12,
+    color: "#666",
+    marginBottom: 4,
+  },
+  farmerInfo: {
+    flexDirection: "row",
+    alignItems: "center",
     marginTop: 4,
   },
-  productMetaContainer: {
+  farmerName: {
+    fontSize: 12,
+    color: "#666",
+    marginLeft: 4,
+  },
+  emptyContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 50,
+  },
+  emptyText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#999",
+    marginTop: 16,
+  },
+  emptySubtext: {
+    fontSize: 14,
+    color: "#999",
+    marginTop: 8,
+    textAlign: "center",
+  },
+  // Modal styles
+  modalContainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    paddingBottom: 20,
+    height: "90%", // Take up most of the screen
+  },
+  modalHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 8,
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#eee",
   },
-  productPrice: {
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  modalScrollContent: {
+    flex: 1,
+  },
+  imageCarousel: {
+    height: 250,
+  },
+  carouselImage: {
+    width: 350, // Adjust based on your design
+    height: 250,
+  },
+  noImageContainerModal: {
+    height: 250,
+    backgroundColor: "#f0f0f0",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  detailSection: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: "#eee",
+  },
+  detailSectionTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#4CAF50",
+    marginBottom: 12,
+    color: "#333",
   },
-  productCategory: {
-    fontSize: 12,
-    color: "#757575",
-    backgroundColor: "#F5F5F5",
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
+  detailRow: {
+    flexDirection: "row",
+    marginBottom: 8,
   },
-  farmerInfo: {
-    fontSize: 12,
-    color: "#757575",
-    marginTop: 8,
+  detailLabel: {
+    width: 80,
+    fontSize: 14,
+    color: "#666",
   },
-  loadingContainer: {
+  detailValue: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    fontSize: 14,
+    color: "#333",
   },
-  emptyContainer: {
+  farmerDetailCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f9f9f9",
+    borderRadius: 8,
+    padding: 12,
+  },
+  farmerAvatarContainer: {
+    marginRight: 12,
+  },
+  farmerDetails: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    paddingVertical: 40,
   },
-  emptyText: {
-    color: "#757575",
+  farmerDetailName: {
     fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+  },
+  farmerDetailContact: {
+    fontSize: 14,
+    color: "#666",
+  },
+  contactButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#4CAF50",
+    paddingVertical: 14,
+    marginHorizontal: 16,
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+  contactButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#fff",
+    marginLeft: 8,
   },
 });
 
 export default MainScreen;
+/////////////////////////////////////////////////////////////////////////
+// // MainScreen.js
+// import React, { useState, useEffect } from "react";
+// import {
+//   View,
+//   Text,
+//   StyleSheet,
+//   TextInput,
+//   FlatList,
+//   Image,
+//   TouchableOpacity,
+//   ActivityIndicator,
+//   Alert,
+// } from "react-native";
+// import { Ionicons } from "@expo/vector-icons";
+// import axios from "axios";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
+// import { SafeAreaView } from "react-native-safe-area-context";
+// import { handleLogout } from "../components/Logout";
+// import AgriTrendsCard from "../components/AgriTrendsCard";
 
+// const MainScreen = ({ navigation }) => {
+//   const [products, setProducts] = useState([]);
+//   const [filteredProducts, setFilteredProducts] = useState([]);
+//   const [loading, setLoading] = useState(true);
+//   const [searchQuery, setSearchQuery] = useState("");
+//   const [selectedCategory, setSelectedCategory] = useState("All");
+//   const [refreshing, setRefreshing] = useState(false);
+
+//   const categories = [
+//     "All",
+//     "Vegetables",
+//     "Fruits",
+//     "Grains",
+//     "Dairy",
+//     "Other",
+//   ];
+//   const apiBaseUrl = "http://192.168.18.85:3001/api";
+//   useEffect(() => {
+//     fetchAllProducts();
+//   }, []);
+
+//   useEffect(() => {
+//     filterProducts();
+//   }, [searchQuery, selectedCategory, products]);
+
+//   const fetchAllProducts = async () => {
+//     try {
+//       setLoading(true);
+//       const token = await AsyncStorage.getItem("token");
+
+//       if (!token) {
+//         Alert.alert("Error", "You need to login first");
+//         return;
+//       }
+
+//       const response = await axios.get(`${apiBaseUrl}/auth/login`, {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       });
+
+//       setProducts(response.data);
+//       setFilteredProducts(response.data);
+//     } catch (error) {
+//       console.error("Error fetching products:", error);
+//       Alert.alert("Error", "Failed to load products");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   const handleRefresh = () => {
+//     setRefreshing(true);
+//     fetchAllProducts().then(() => setRefreshing(false));
+//   };
+
+//   const filterProducts = () => {
+//     let filtered = products;
+
+//     // Filter by search query
+//     if (searchQuery) {
+//       filtered = filtered.filter(
+//         (product) =>
+//           product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+//           product.description.toLowerCase().includes(searchQuery.toLowerCase())
+//       );
+//     }
+
+//     // Filter by category
+//     if (selectedCategory !== "All") {
+//       filtered = filtered.filter(
+//         (product) =>
+//           product.category.toLowerCase() === selectedCategory.toLowerCase()
+//       );
+//     }
+
+//     setFilteredProducts(filtered);
+//   };
+
+//   const handleCategorySelect = (category) => {
+//     setSelectedCategory(category);
+//   };
+
+//   const renderCategoryItem = ({ item }) => (
+//     <TouchableOpacity
+//       style={[
+//         styles.categoryItem,
+//         selectedCategory === item && styles.selectedCategoryItem,
+//       ]}
+//       onPress={() => handleCategorySelect(item)}
+//     >
+//       <Text
+//         style={[
+//           styles.categoryText,
+//           selectedCategory === item && styles.selectedCategoryText,
+//         ]}
+//       >
+//         {item}
+//       </Text>
+//     </TouchableOpacity>
+//   );
+
+//   const renderProduct = ({ item }) => (
+//     <TouchableOpacity
+//       style={styles.productCard}
+//       onPress={() => navigation.navigate("ProductDetail", { product: item })}
+//     >
+//       <Image
+//         source={{ uri: item.imageUrl || "https://via.placeholder.com/150" }}
+//         style={styles.productImage}
+//       />
+//       <View style={styles.productInfo}>
+//         <Text style={styles.productName}>{item.name}</Text>
+//         <Text style={styles.productDescription} numberOfLines={2}>
+//           {item.description}
+//         </Text>
+//         <View style={styles.productMetaContainer}>
+//           <Text style={styles.productPrice}>₹{item.price}</Text>
+//           <Text style={styles.productCategory}>{item.category}</Text>
+//         </View>
+//         <Text style={styles.farmerInfo}>
+//           By {item.farmerName || "Local Farmer"}
+//         </Text>
+//       </View>
+//     </TouchableOpacity>
+//   );
+
+//   return (
+//     <SafeAreaView style={styles.safeArea}>
+//       <View style={styles.container}>
+//         <View style={styles.header}>
+//           <Text style={styles.headerTitle}>Agri-Connect</Text>
+//           <TouchableOpacity
+//             onPress={() => handleLogout(navigation)}
+//             style={styles.logoutButton}
+//           >
+//             <Text style={styles.logoutText}>Logout</Text>
+//           </TouchableOpacity>
+//         </View>
+
+//         <View style={styles.searchContainer}>
+//           <Ionicons
+//             name="search"
+//             size={20}
+//             color="#757575"
+//             style={styles.searchIcon}
+//           />
+//           <TextInput
+//             style={styles.searchInput}
+//             placeholder="Search for products..."
+//             value={searchQuery}
+//             onChangeText={setSearchQuery}
+//           />
+//         </View>
+
+//         <View style={styles.categoriesContainer}>
+//           <FlatList
+//             data={categories}
+//             renderItem={renderCategoryItem}
+//             keyExtractor={(item) => item}
+//             horizontal
+//             showsHorizontalScrollIndicator={false}
+//           />
+//         </View>
+//         {/* <AgriTrendsCard /> */}
+//         {loading ? (
+//           <View style={styles.loadingContainer}>
+//             <ActivityIndicator size="large" color="#4CAF50" />
+//           </View>
+//         ) : (
+//           <FlatList
+//             data={filteredProducts}
+//             renderItem={renderProduct}
+//             keyExtractor={(item) => item._id}
+//             contentContainerStyle={styles.productList}
+//             refreshing={refreshing}
+//             onRefresh={handleRefresh}
+//             ListEmptyComponent={
+//               <View style={styles.emptyContainer}>
+//                 <Text style={styles.emptyText}>No products found</Text>
+//               </View>
+//             }
+//           />
+//         )}
+//       </View>
+//     </SafeAreaView>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   safeArea: {
+//     flex: 1,
+//   },
+//   container: {
+//     flex: 1,
+//     backgroundColor: "#F5F5F5",
+//   },
+//   header: {
+//     backgroundColor: "#4CAF50",
+//     paddingVertical: 20,
+//     paddingHorizontal: 16,
+//     flexDirection: "row",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//   },
+//   logoutButton: {
+//     backgroundColor: "#4CAF50",
+//     padding: 6,
+//     borderRadius: 5,
+//   },
+//   logoutText: {
+//     color: "#fff",
+//     fontSize: 16,
+//   },
+//   headerTitle: {
+//     fontSize: 20,
+//     fontWeight: "bold",
+//     color: "#fff",
+//   },
+//   searchContainer: {
+//     flexDirection: "row",
+//     alignItems: "center",
+//     backgroundColor: "#fff",
+//     margin: 16,
+//     borderRadius: 8,
+//     paddingHorizontal: 12,
+//     shadowColor: "#000",
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.1,
+//     shadowRadius: 4,
+//     elevation: 2,
+//   },
+//   searchIcon: {
+//     marginRight: 8,
+//   },
+//   searchInput: {
+//     flex: 1,
+//     padding: 12,
+//   },
+//   categoriesContainer: {
+//     marginBottom: 16,
+//     paddingLeft: 16,
+//   },
+//   categoryItem: {
+//     paddingHorizontal: 16,
+//     paddingVertical: 8,
+//     backgroundColor: "#fff",
+//     borderRadius: 20,
+//     marginRight: 8,
+//     borderWidth: 1,
+//     borderColor: "#E0E0E0",
+//   },
+//   selectedCategoryItem: {
+//     backgroundColor: "#4CAF50",
+//     borderColor: "#4CAF50",
+//   },
+//   categoryText: {
+//     color: "#333",
+//   },
+//   selectedCategoryText: {
+//     color: "#fff",
+//     fontWeight: "bold",
+//   },
+//   productList: {
+//     padding: 16,
+//   },
+//   productCard: {
+//     flexDirection: "row",
+//     backgroundColor: "#fff",
+//     borderRadius: 8,
+//     marginBottom: 16,
+//     overflow: "hidden",
+//     shadowColor: "#000",
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.1,
+//     shadowRadius: 4,
+//     elevation: 2,
+//   },
+//   productImage: {
+//     width: 120,
+//     height: 120,
+//   },
+//   productInfo: {
+//     flex: 1,
+//     padding: 12,
+//   },
+//   productName: {
+//     fontSize: 16,
+//     fontWeight: "bold",
+//     color: "#333",
+//   },
+//   productDescription: {
+//     fontSize: 14,
+//     color: "#757575",
+//     marginTop: 4,
+//   },
+//   productMetaContainer: {
+//     flexDirection: "row",
+//     justifyContent: "space-between",
+//     alignItems: "center",
+//     marginTop: 8,
+//   },
+//   productPrice: {
+//     fontSize: 16,
+//     fontWeight: "bold",
+//     color: "#4CAF50",
+//   },
+//   productCategory: {
+//     fontSize: 12,
+//     color: "#757575",
+//     backgroundColor: "#F5F5F5",
+//     paddingHorizontal: 8,
+//     paddingVertical: 4,
+//     borderRadius: 4,
+//   },
+//   farmerInfo: {
+//     fontSize: 12,
+//     color: "#757575",
+//     marginTop: 8,
+//   },
+//   loadingContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+//   emptyContainer: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     paddingVertical: 40,
+//   },
+//   emptyText: {
+//     color: "#757575",
+//     fontSize: 16,
+//   },
+// });
+
+// export default MainScreen;
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 // import React, { useState, useEffect } from "react";
 // import {
 //   View,

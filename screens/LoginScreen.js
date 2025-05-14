@@ -63,7 +63,7 @@ const LoginScreen = ({ navigation }) => {
         // Determine which screen to navigate to based on userType
         const destinationScreen =
           userData.userType.trim().toLowerCase() === "business"
-            ? "FarmerScreen"
+            ? "FarmerTabs"
             : "MainScreen";
         console.log("Navigating to:", destinationScreen);
         // Success message

@@ -7,7 +7,8 @@ import SplashScreen from "./screens/SplashScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import MainHomeScreen from "./screens/MainHomeScreen";
-import FarmerScreen from "./screens/FarmerScreen";
+import FarmerTabNavigator from "./screens/FarmerTabNavigator";
+import AddProduct from "./screens/AddProduct";
 
 const Stack = createStackNavigator();
 
@@ -23,7 +24,22 @@ const AppNavigation = () => {
         />
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="FarmerScreen" component={FarmerScreen} />
+        <Stack.Screen name="FarmerTabs" component={FarmerTabNavigator} />
+        <Stack.Screen
+          name="AddProduct"
+          component={AddProduct}
+          options={{
+            headerShown: true,
+            title: "Add Product",
+            headerStyle: {
+              backgroundColor: "#4CAF50",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontWeight: "bold",
+            },
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
