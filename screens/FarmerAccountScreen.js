@@ -17,7 +17,7 @@ import ProductCard from "../components/ProductCard";
 import { handleLogout } from "../components/Logout";
 import { useFocusEffect } from "@react-navigation/native";
 
-const API_URL = "http://192.168.18.85:3001/api";
+const API_URL = "http://192.168.120.83:3001/api";
 
 const FarmerAccountScreen = ({ navigation }) => {
   const [categories, setCategories] = useState([]);

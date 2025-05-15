@@ -31,7 +31,7 @@ const RegisterScreen = () => {
   const handleRegister = async () => {
     setLoading(true);
     try {
-      const image = ""; // Placeholder for image handling if necessary
+      const image = "";
       const response = await registerUser(
         name,
         email,
@@ -48,7 +48,6 @@ const RegisterScreen = () => {
         text2: "You have been registered successfully.",
       });
 
-      // Navigate based on user type
       const destination =
         userType === "Consumer" ? "MainScreen" : "FarmerScreen";
       navigation.navigate(destination);

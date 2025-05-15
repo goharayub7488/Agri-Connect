@@ -16,7 +16,7 @@ import * as ImagePicker from "expo-image-picker";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const API_URL = "http://192.168.18.85:3001/api";
+const API_URL = "http://192.168.120.83:3001/api";
 
 const AddProduct = ({ navigation, route }) => {
   const [formData, setFormData] = useState({
@@ -156,6 +156,9 @@ const AddProduct = ({ navigation, route }) => {
 
   return (
     <KeyboardAvoidingView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>ADD Product</Text>
+      </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.formContainer}>
           {/* Product Name */}
@@ -296,6 +299,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 16,
+    backgroundColor: "#4CAF50",
+  },
+  headerTitle: { color: "#fff", fontSize: 20, fontWeight: "bold" },
+  categoriesList: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingTop: 24,
+    paddingBottom: 12,
+    marginBottom: 8,
   },
   scrollView: {
     flex: 1,

@@ -1,43 +1,80 @@
-// AppNavigation.js
-import React from "react";
-import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
 import SplashScreen from "./screens/SplashScreen";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
-import MainHomeScreen from "./screens/MainHomeScreen";
-import FarmerTabNavigator from "./screens/FarmerTabNavigator";
+
+import FarmerHomeScreen from "./screens/FarmerHomeScreen";
 import AddProduct from "./screens/AddProduct";
+import FarmerAccountScreen from "./screens/FarmerAccountScreen";
+import ProductDetailScreen from "./screens/ProductDetailScreen";
 
 const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const FarmerTabs = () => (
+  <Tab.Navigator
+    initialRouteName="Home"
+    screenOptions={({ route }) => ({
+      headerShown: false,
+      tabBarActiveTintColor: "#4CAF50",
+      tabBarInactiveTintColor: "#888",
+      tabBarShowLabel: true,
+      tabBarIcon: ({ color, size }) => {
+        if (route.name === "Home") {
+          return <Ionicons name="home" size={size} color={color} />;
+        } else if (route.name === "Add") {
+          return <Ionicons name="add-circle" size={size + 8} color={color} />;
+        } else if (route.name === "Account") {
+          return <Ionicons name="person" size={size} color={color} />;
+        }
+      },
+    })}
+  >
+    <Tab.Screen name="Home" component={FarmerHomeScreen} />
+    <Tab.Screen name="Add" component={AddProduct} />
+    <Tab.Screen name="Account" component={FarmerAccountScreen} />
+  </Tab.Navigator>
+);
+const ConsumerTabs = () => (
+  <Tab.Navigator
+    screenOptions={({ route }) => ({
+      headerShown: false,
+      tabBarActiveTintColor: "#4CAF50",
+      tabBarInactiveTintColor: "#888",
+      tabBarShowLabel: true,
+      tabBarIcon: ({ color, size }) => {
+        return <Ionicons name="home" size={size} color={color} />;
+      },
+    })}
+  >
+    <Tab.Screen name="Home" component={FarmerHomeScreen} />
+  </Tab.Navigator>
+);
 
 const AppNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Splash" component={SplashScreen} />
-        <Stack.Screen
-          name="MainScreen"
-          component={MainHomeScreen}
-          options={{ headerShown: false }}
-        />
+        {/* <Stack.Screen name="MainScreen" component={MainHomeScreen} /> */}
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="FarmerTabs" component={FarmerTabNavigator} />
+        <Stack.Screen name="ConsumerTabs" component={ConsumerTabs} />
+        <Stack.Screen name="FarmerTabs" component={FarmerTabs} />
+        <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
         <Stack.Screen
           name="AddProduct"
           component={AddProduct}
           options={{
             headerShown: true,
             title: "Add Product",
-            headerStyle: {
-              backgroundColor: "#4CAF50",
-            },
+            headerStyle: { backgroundColor: "#4CAF50" },
             headerTintColor: "#fff",
-            headerTitleStyle: {
-              fontWeight: "bold",
-            },
+            headerTitleStyle: { fontWeight: "bold" },
           }}
         />
       </Stack.Navigator>

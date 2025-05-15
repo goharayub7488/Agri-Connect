@@ -17,7 +17,7 @@ const LoginScreen = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const apiBaseUrl = "http://192.168.18.85:3001/api"; // Replace with your actual API base URL
+  const apiBaseUrl = "http://192.168.120.83:3001/api";
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -64,7 +64,7 @@ const LoginScreen = ({ navigation }) => {
         const destinationScreen =
           userData.userType.trim().toLowerCase() === "business"
             ? "FarmerTabs"
-            : "MainScreen";
+            : "ConsumerTabs";
         console.log("Navigating to:", destinationScreen);
         // Success message
         Alert.alert("Success", `Logged in as ${userData.userType}`, [
